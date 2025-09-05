@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sigh up</title>
+  <title>Login</title>
   <style>
     body { 
         font-family: Arial, sans-serif;
@@ -13,58 +13,75 @@
         align-items: center; 
         height: 100vh; 
     }
-    .register-box { 
+    .login-box { 
         background: #fff; 
         padding: 30px; border-radius: 12px; 
         box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
         width: 400px; 
     }
-    .register-box h2 { 
+    .login-box h2 { 
         text-align: center; 
         margin-bottom: 20px; 
     }
-    .register-box input, .register-box button {
+    .login-box input, .login-box button {
          width: 100%; 
         padding: 10px; 
         margin: 10px 0; 
         border-radius: 8px; 
     }
-    .register-box input { 
+    .login-box input { 
         border: 1px solid #ccc; 
     }
-    .register-box button { 
-        background: #007bff; 
+    .login-box button { 
+        background: #087d0e; 
         color: white; 
         border: none; 
         cursor: pointer; 
     }
-    .register-box button:hover { 
-        background: #0069d9; 
+    .login-box button:hover { 
+        background: #c7ccd0; 
     }
-    .register-box p { 
+    .auth-footer {
+        text-align: right;
+        font-size: 14px;
+    }   
+
+    .auth-footer a {
+        color: #2563eb;
+        text-decoration: none;
+        
+    }
+
+    .auth-footer a:hover {
+        text-decoration: underline;
+    }
+    .login-box p { 
         text-align: center; 
         font-size: 14px;
         margin-top: 10px; 
     }
-    .register-box a { 
+    .login-box a { 
         text-decoration: none; 
         color: #007bff; 
     }
-    .register-box a:hover {
+    .login-box a:hover {
         text-decoration: underline; 
     }
   </style>
 </head>
 <body>
-  <div class="register-box">
-    <h2>Sigh up</h2>
-    <form id="registerForm">
-      <input type="text" id="fullname" placeholder="ชื่อ-นามสกุล" required>
+  <div class="login-box">
+    <h2>Login</h2>
+    <form id="loginForm">
       <input type="email" id="email" placeholder="Email" required>
       <input type="password" id="password" placeholder="Password" required>
-      <input type="password" id="confirm" placeholder="Confirm Password" required>
-      <button type="submit">Register  </a></button>
-      <p>มีบัญชีแล้ว? <a href="login.html">เข้าสู่ระบบ</a></p>
+
+      <div class="auth-footer">
+        <a href="forgot.html">Forgot password?</a>
+      </div>
+      
+      <button type="submit">Login</button>
+      <p>Don't have any account <a href="newacc.html">Register</a></p>
     </form>
     <p id="message" style="color:red;"></p>
   </div>
@@ -77,11 +94,6 @@
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
       const confirm = document.getElementById("confirm").value;
-
-      if(password !== confirm){
-        document.getElementById("message").textContent = "Your password is not match !";
-        return;
-    }
 
 
       // ส่งไป backend
